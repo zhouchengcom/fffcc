@@ -6,7 +6,7 @@ from flask_cors import CORS
 
 
 from .config import SetConfig
-from .admin import InitAdmin
+# from .admin import InitAdmin
 app = Flask(__name__)
 
 # if "gunicorn.error" in logging.Logger.manager.loggerDict:
@@ -23,4 +23,4 @@ CORS(app)
 
 # app.register_blueprint(uploadmod, url_prefix='/api/report')
 
-InitAdmin(app)
+# InitAdmin(app)
