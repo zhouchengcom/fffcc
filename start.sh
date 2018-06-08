@@ -1,0 +1,1 @@
+gunicorn lic.web:app -c gunicorn_config.py
