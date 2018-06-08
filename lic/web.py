@@ -9,12 +9,18 @@ from flask.logging import default_handler
 from .config import SetConfig
 # from .admin import InitAdmin
 
-root = logging.getLogger()
-root.addHandler(default_handler)
+
 # root.addHandler(mail_handler)
 
 app = Flask(__name__)
 
+
+if "gunicorn.error" in logging.Logger.manager.loggerDict:
+    logging.root = logging.getLogger("gunicorn.error")
+    app.logger.addHandler(logging.getLogger("gunicorn.error"))
+
+
+    
 # if "gunicorn.error" in logging.Logger.manager.loggerDict:
 #     logging.root = logging.getLogger("gunicorn.error")
 #     app.logger.addHandler(logging.getLogger("gunicorn.error"))
