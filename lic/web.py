@@ -11,7 +11,7 @@ from .config import SetConfig
 
 root = logging.getLogger()
 root.addHandler(default_handler)
-root.addHandler(mail_handler)
+# root.addHandler(mail_handler)
 
 app = Flask(__name__)
 
