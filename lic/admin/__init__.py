@@ -41,6 +41,6 @@ def InitAdmin(app):
     )
 
     # Add model views
-    admin.add_view(SnakeModelView(Role))
-    admin.add_view(SnakeModelView(User))
-    admin.add_view(SnakeModelView(Label))
+    # admin.add_view(SnakeModelView(Role))
+    # admin.add_view(SnakeModelView(User))
+    # admin.add_view(SnakeModelView(Label))
