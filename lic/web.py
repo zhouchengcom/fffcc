@@ -20,6 +20,8 @@ if not app.config.from_envvar('LICCONFIG', silent=True):
 
 CORS(app)
 
+logging.info("start aaaa")
+
 
 # app.register_blueprint(uploadmod, url_prefix='/api/report')
 
