@@ -1,5 +1,5 @@
 bind = '0.0.0.0:9988'
-workers = 4
+workers = 2
 worker_class = 'gevent'
 worker_connections = 100
 accesslog = "log/access.log"

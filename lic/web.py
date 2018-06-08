@@ -20,7 +20,7 @@ if "gunicorn.error" in logging.Logger.manager.loggerDict:
     app.logger.addHandler(logging.getLogger("gunicorn.error"))
 
 
-    
+
 # if "gunicorn.error" in logging.Logger.manager.loggerDict:
 #     logging.root = logging.getLogger("gunicorn.error")
 #     app.logger.addHandler(logging.getLogger("gunicorn.error"))
@@ -33,7 +33,6 @@ if not app.config.from_envvar('LICCONFIG', silent=True):
 CORS(app)
 
 logging.info("start aaaa")
-app.logger.info("dsfsdf")
 
 # app.register_blueprint(uploadmod, url_prefix='/api/report')
 
