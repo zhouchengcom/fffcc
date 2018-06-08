@@ -3,10 +3,16 @@ import logging
 from flask import Flask
 from flask_cors import CORS
 
+from flask.logging import default_handler
 
 
 from .config import SetConfig
 # from .admin import InitAdmin
+
+root = logging.getLogger()
+root.addHandler(default_handler)
+root.addHandler(mail_handler)
+
 app = Flask(__name__)
 
 # if "gunicorn.error" in logging.Logger.manager.loggerDict:
