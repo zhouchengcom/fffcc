@@ -1,12 +1,7 @@
 import flask_admin
-from flask_admin.contrib.mongoengine import ModelView
 
-from flask_security import Security, SQLAlchemyUserDatastore, \
-    UserMixin, RoleMixin, login_required, current_user
 
-from ..db.user import User, Role
 from flask import Flask, url_for, redirect, render_template, request, abort
-from ..db.mongomodel import Label
 
 
 class SnakeModelView(ModelView):
