@@ -38,14 +38,15 @@ def Registered():
     logging.info(result)
     if result['success']:
         result['success'] = 'true'
+        result["message"] = "注册成功"
         result.update({
             "id": "123123123123213",
-            "petName": "13543882429",
+            "petName": request.form['registered_input_mobile'],
             "password": md5.hexdigest(),
             "email": None,
             "mobile": request.form['registered_input_mobile'],
             "status": "活跃",
-            "appToken": "123123123123123123"
+            "appToken": None
         })
     else:
         result['success'] = 'false'
@@ -85,7 +86,7 @@ def Login():
                 "status": "活跃",
                 "appToken": result['data']['ID'],
             }],
-            "sessionId":result['data']['ID'],
+            "sessionId": result['data']['ID'],
             "message": "登录成功"
         }
         result = new
@@ -96,10 +97,9 @@ def Login():
     return jsonify(result)
 
 
-
 @mod.route("/zj/userLogin/logout", methods=["POST"])
 def Loginout():
-    return jsonify({"success":"true","message":"登出成功"})
+    return jsonify({"success": "true", "message": "登出成功"})
 # data = {
 #     "password": '123456',
 #     'username': '666888',
