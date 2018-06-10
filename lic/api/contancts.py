@@ -26,7 +26,7 @@ class Friend(Model):
     ifReciveFriend = StringType(default=None)
 
 
-mod = Blueprint('report', __name__)
+mod = Blueprint('contancts', __name__)
 
 
 @mod.route("/zj/zjPersonContacts/save", methods=["POST"])
@@ -53,11 +53,11 @@ def add():
     return jsonify(result)
 
 
-@mod.route("/zj/zjPerson/search", methods=["POST"])
+@mod.route("/zj/zjPersonContacts/search", methods=["POST"])
 def search():
     logging.info(request.form)
     userid = request.form["appToken"]
-    if "mobile|=" in request.form:
+    if "mobile!=" in request.form:
         name = request.form['mobile|=']
         params = {
             'query.modelCode': '000234',
@@ -69,8 +69,7 @@ def search():
             host+"dynamicJson!doListNoPageForJson.action", params=params)
         logging.info(r.status_code)
         result = r.json()
-        logging.info(r.url)
-        logging.info(result)
+
         result['total'] = len(result['data'])
         for v in result['data']:
             v.pop("$type$")
@@ -88,8 +87,6 @@ def search():
         r = requests.get(host+"dynamicJson!listPage.action", params=params)
         logging.info(r.status_code)
         result = r.json()
-        logging.info(r.url)
-        logging.info(result)
         result['total'] = len(result['data'])
         for v in result['data']:
             v.pop("$type$")
@@ -99,3 +96,6 @@ def search():
     return jsonify(result)
 
 
+@mod.route("/zj/zjPersonCollection/search", methods=["POST"])
+def Collectionsearch():
+    return jsonify({'data': [], "success": "true", "message": "获取列表数据成功"})
