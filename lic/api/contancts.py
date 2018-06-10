@@ -99,3 +99,108 @@ def search():
 @mod.route("/zj/zjPersonCollection/search", methods=["POST"])
 def Collectionsearch():
     return jsonify({'data': [], "success": "true", "message": "获取列表数据成功"})
+
+
+@mod.route("/zj/zjPerson/getMe", methods=["POST"])
+def GetMe():
+    data = {
+        "data": {
+            "id": request.form['id'],
+            "urlHeader": None,
+            "urlQrCode": "20180302/252e60cb2a9f49d9afc71069b407ca0a.jpg",
+            "petName": request.form['mobile'],
+            "signName": None,
+            "zcode": request.form['mobile'],
+            "code": "24ec5081-ac4b-44e7-85c2-526cf396b4fc",
+            "userId": request.form['id'],
+            "userPetName": request.form['mobile'],
+            "socialRole": "",
+            "privacyDisplay": None,
+            "notice": None,
+            "receiveInfo": None,
+            "safeRange": None,
+            "lal": None,
+            "address": None,
+            "shen": None,
+            "shi": None,
+            "qu": None,
+            "jiedao": None,
+            "lalNow": None,
+            "addressNow": None,
+            "shenNow": None,
+            "shiNow": None,
+            "quNow": None,
+            "jiedaoNow": None,
+            "idNo": None,
+            "idCard": None,
+            "name": None,
+            "mobile": request.form['mobile'],
+            "status": None,
+            "comments": None,
+            "nowRole": None,
+            "nowRoleHeader": None,
+            "face": None,
+            "grade": None,
+            "integral": None,
+            "credit": None,
+            "priorityView": None,
+            "roleHeader": None,
+            "secretPosition": None,
+            "passwordInfo": None,
+            "notDisturb": None,
+            "drawer": None,
+            "urlPhotoes": None,
+            "homePhone": None,
+            "email": None,
+            "homeAddress": None,
+            "carryBag": None,
+            "datetime": 1520000962000,
+            "withWho": None,
+            "defineAttribute": None
+        },
+        "success": "true",
+        "message": "人对象获取成功"
+    }
+    return jsonify(data)
+
+# data = {
+#     "password": '123456',
+#     'username': '666888',
+#     'mobile': '666888'
+# }
+
+# params = {
+#     'jsons': json.dumps(data)
+# }
+
+# r = requests.get(host+"dynamicJson!register.action", params=params)
+# logging.info(r.status_code)
+# result = r.json()
+# pprint.pprint(result)
+
+
+# params = {
+#     "pwd": '123456',
+#     'username': '666888',
+#     'keep_login': "1"}
+
+
+# r = requests.get(host+"dynamicJson!login.action", params=params)
+# logging.info(r.status_code)
+# result = r.json()
+# pprint.pprint(result)
+# logging.info(r.url)
+
+
+# params = {
+#     'query.modelCode': '000234',
+#     'delSql': '1',
+#     'sechuserName': '666888',
+# }
+
+# r = requests.get(
+#     host+"dynamicJson!doListNoPageForJson.action", params=params)
+# logging.info(r.status_code)
+# result = r.json()
+# logging.info(r.url)
+# pprint.pprint(result)

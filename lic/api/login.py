@@ -76,18 +76,16 @@ def Login():
         result['success'] = 'true'
         new = {
             'success': "true",
-            'data': {
-                # result['data']['ID'],
-                'id': "0000000062d4b4b10163e89b482a2454",
+            'data': [{
+                'id': result['data']['ID'],
                 "petName": result['data']['username'],
                 "password": result['data']["password"],
                 "email": None,
                 "mobile": result['data']['mobile'],
                 "status": "活跃",
-                # result['data']['ID']
-                "appToken": "22e23f4e166c434a9ab04bd501f18e63",
-            },
-            "sessionId":"7C17AE797108E257DCB337E4BCEE743B",
+                "appToken": result['data']['ID'],
+            }],
+            "sessionId":result['data']['ID'],
             "message": "登录成功"
         }
         result = new
@@ -95,8 +93,13 @@ def Login():
         result['success'] = "false"
         result.pop("data")
     logging.info(result)
-    return '{"data":[{"id":"0000000062d4b4b10163e89b482a2454","petName":"13543882429","password":"25d55ad283aa400af464c76d713c07ad","email":null,"mobile":"13543882429","status":"活跃","appToken":"22e23f4e166c434a9ab04bd501f18e63"}],"success":"true","sessionId":"7C17AE797108E257DCB337E4BCEE743B","message":"登录成功"}"'
+    return jsonify(result)
 
+
+
+@mod.route("/zj/userLogin/logout", methods=["POST"])
+def Loginout():
+    return jsonify({"success":"true","message":"登出成功"})
 # data = {
 #     "password": '123456',
 #     'username': '666888',
