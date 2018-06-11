@@ -4,3 +4,4 @@ flask_cors
 gunicorn
 schematics
 requests
+supervisor
