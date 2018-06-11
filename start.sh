@@ -1,1 +1,1 @@
-pkill -9 Python; pkill -9 python; pkill -9 gunicorn; gunicorn lic.web:app -c gunicorn_config.py
+git pull;pkill -9 Python; pkill -9 python; pkill -9 gunicorn; gunicorn lic.web:app -c gunicorn_config.py
