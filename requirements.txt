@@ -1,0 +1,6 @@
+gevent
+flask
+flask_cors
+gunicorn
+schematics
+requests
