@@ -66,7 +66,7 @@ def search():
         }
 
         r = requests.get(
-            host+"dynamicJson!doListNoPageForJson.action", params=params)
+            host+"dynamicJson!doListNoPage.action", params=params)
         logging.info(r.status_code)
         result = r.json()
 
@@ -163,44 +163,47 @@ def GetMe():
     }
     return jsonify(data)
 
-# data = {
-#     "password": '123456',
-#     'username': '666888',
-#     'mobile': '666888'
-# }
+data = {
+    "password": '123456',
+    'username': '13543882221',
+    'mobile': '13543882221'
+}
 
-# params = {
-#     'jsons': json.dumps(data)
-# }
+params = {
+    'jsons': json.dumps(data)
+}
 
-# r = requests.get(host+"dynamicJson!register.action", params=params)
-# logging.info(r.status_code)
-# result = r.json()
-# pprint.pprint(result)
-
-
-# params = {
-#     "pwd": '123456',
-#     'username': '666888',
-#     'keep_login': "1"}
+r = requests.get(host+"dynamicJson!register.action", params=params)
+logging.info(r.status_code)
+result = r.json()
+print(r.url)
+pprint.pprint(result)
 
 
-# r = requests.get(host+"dynamicJson!login.action", params=params)
-# logging.info(r.status_code)
-# result = r.json()
-# pprint.pprint(result)
-# logging.info(r.url)
+params = {
+    "pwd": '123456',
+    'username': '13543882221',
+    'keep_login': "1"}
 
 
-# params = {
-#     'query.modelCode': '000234',
-#     'delSql': '1',
-#     'sechuserName': '666888',
-# }
+r = requests.get(host+"dynamicJson!login.action", params=params)
+logging.info(r.status_code)
+result = r.json()
+pprint.pprint(result)
+print(r.url)
 
-# r = requests.get(
-#     host+"dynamicJson!doListNoPageForJson.action", params=params)
-# logging.info(r.status_code)
-# result = r.json()
-# logging.info(r.url)
-# pprint.pprint(result)
+
+params = {
+    'query.modelCode': '000234',
+    'delSql': '1',
+    'sechuserName': '13543882221',
+}
+
+r = requests.get(
+    host+"dynamicJson!listPage.action", params=params)
+logging.info(r.status_code)
+print(r.url)
+# print(r.text)
+result = r.json()
+logging.info(r.url)
+pprint.pprint(result)
